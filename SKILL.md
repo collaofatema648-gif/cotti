@@ -359,7 +359,7 @@ keywords:
 
 ## 维护者参考
 
-- **MCP 端点**：以 `skill.json` 中 `mcp_server.url` 为准（当前：`http://118.24.41.69:3000/mcp`）
+- **MCP 端点**：以 `skill.json` 中 `mcp_server.url` 为准（当前：`http://1.14.108.53:3000/mcp`）
 - **协议**：MCP Streamable HTTP（POST 走 MCP 协议，GET 返回业务数据 JSON）
 - **部署平台**：云服务器或云函数（支持 MCP 协议即可）
 - **数据更新**：门店信息在云端 MCP 服务中维护，客户端 Skill 自动调用，信息实时更新

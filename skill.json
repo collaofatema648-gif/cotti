@@ -28,7 +28,7 @@
   ],
   "mcp_server": {
     "transport": "streamable-http",
-    "url": "http://118.24.41.69:3000/mcp"
+    "url": "http://1.14.108.53:3000/mcp"
   },
   "tools": [
     {

@@ -150,7 +150,7 @@ git clone https://github.com/collaofatema648-gif/cotti.git \
   "mcpServers": {
     "cotti-ic-skill": {
       "type": "streamable-http",
-      "url": "http://118.24.41.69:3000/mcp"
+      "url": "http://1.14.108.53:3000/mcp"
     }
   }
 }
