@@ -1,0 +1,33 @@
+{
+  "mcpServers": {
+    "cotti-ic-skill": {
+      "type": "streamable-http",
+      "url": "http://118.24.41.69:3000/mcp",
+      "headers": {
+        "Authorization": "Bearer YOUR_API_KEY_IF_NEEDED"
+      },
+      "timeout": 30000
+    }
+  },
+  "notes": [
+    "这是一个 MCP 配置示例文件",
+    "请将 'your-mcp-endpoint.com' 替换为实际的 MCP 服务器地址",
+    "如果需要身份验证，请添加相应的 Authorization 头",
+    "timeout 单位为毫秒，可根据实际情况调整"
+  ],
+  "compatibility": [
+    "Qoder",
+    "Cursor",
+    "Windsurf",
+    "Claude Code",
+    "Trae",
+    "其他支持 MCP 协议的客户端"
+  ],
+  "usage": {
+    "qoder": "将配置添加到 .qoder/config.json 或项目的 MCP 配置文件中",
+    "cursor": "将配置添加到 Cursor 设置中的 MCP Servers 部分",
+    "windsurf": "将配置添加到 .windsurf/config.json",
+    "claude-code": "将配置添加到 .claude/config.json",
+    "trae": "将配置添加到 .trae/config.json"
+  }
+}
