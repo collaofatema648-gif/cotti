@@ -1,7 +1,7 @@
 {
-  "name": "cotti-ic-skill",
-  "display_name": "库迪咖啡（IC设计产业园店）信息查询",
-  "description": "查询库迪咖啡（IC设计产业园店）信息：门店名称与简介、营业时间、门店地址、优惠活动、团餐服务、当季新品、饮品推荐、定制服务、服务策略。",
+  "name": "ic-cotti-skill",
+  "display_name": "库迪咖啡（IC设计产业园店）专属智能小助手",
+  "description": "库迪咖啡IC设计产业园店智能客服，口语化解答顾客查询库迪咖啡（IC设计产业园店）门店信息、营业时间、门店地址、优惠活动、团餐服务、当季新品、饮品推荐、定制服务、服务策略等问题。",
   "version": "1.0.0",
   "author": "collaofatema648-gif",
   "license": "MIT",
