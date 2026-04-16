@@ -82,7 +82,7 @@
     {
       "name": "get_seasonal_new_products",
       "display_name": "当季新品",
-      "description": "获取库迪咖啡当季新品信息。用户询问"有什么新品"、"当季推荐"、"新品上市"时使用。返回当前季节的新品列表和详细介绍。",
+      "description": "用户问新品推荐、当季新品、有什么新品时，必须调用此工具。工具会从 MCP 服务返回真实新品列表，绝对不能自己编造新品。",
       "inputSchema": {
         "type": "object",
         "properties": {},
@@ -98,7 +98,7 @@
     {
       "name": "get_drink_recommendations",
       "display_name": "饮品推荐",
-      "description": "获取库迪咖啡饮品推荐信息。用户询问"推荐什么喝的"、"有什么低卡饮品"、"无咖啡因"时使用。返回必点饮品、低卡饮品（含卡路里）、无茶无咖饮品列表。",
+      "description": "获取库迪咖啡饮品推荐信息。用户询问"推荐什么喝的"、"有什么低卡饮品"、"无咖啡因"时使用。返回必点饮品、低卡饮品（含卡路里）、无茶无咖饮品列表。绝对不能自己编造饮品和价格",
       "inputSchema": {
         "type": "object",
         "properties": {},
