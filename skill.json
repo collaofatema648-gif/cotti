@@ -34,7 +34,7 @@
     {
       "name": "get_store_info",
       "display_name": "门店基本信息",
-      "description": "查询库迪咖啡（IC设计产业园店）的基本信息。返回门店名称、地址、电话、营业时间、核心特色。无需输入参数，直接调用即可返回全部信息。",
+      "description": "查询库迪咖啡（IC设计产业园店）的基本信息。必须调用，禁止编造。",
       "inputSchema": {
         "type": "object",
         "properties": {},
@@ -50,7 +50,7 @@
     {
       "name": "get_promotions",
       "display_name": "优惠活动",
-      "description": "获取库迪咖啡当前优惠活动信息。用户询问"有什么优惠活动"、"新客有优惠吗"、"群内优惠"时使用。返回最新活动、新客福利、日常优惠、下单方式等信息。",
+      "description": "获取优惠活动，必须调用，禁止编造。",
       "inputSchema": {
         "type": "object",
         "properties": {},
@@ -66,7 +66,7 @@
     {
       "name": "get_group_order_info",
       "display_name": "团餐活动",
-      "description": "获取库迪咖啡团餐服务详情。用户询问"能团餐吗"、"团餐怎么订"、"团餐优惠"时使用。返回团餐下单方式（小程序）、满赠活动、套餐折扣、提前预定配送服务、联系方式等信息。",
+      "description": "获取库迪咖啡团餐服务详情。用户询问"能团餐吗"、"团餐怎么订"、"团餐优惠"时使用。返回团餐下单方式（小程序）、满赠活动、套餐折扣、提前预定配送服务、联系方式等信息。必须调用，禁止编造。",
       "inputSchema": {
         "type": "object",
         "properties": {},
@@ -82,7 +82,7 @@
     {
       "name": "get_seasonal_new_products",
       "display_name": "当季新品",
-      "description": "用户问新品推荐、当季新品、有什么新品时，必须调用此工具。工具会从 MCP 服务返回真实新品列表，绝对不能自己编造新品。",
+      "description": "用户问新品推荐、当季新品、有什么新品时，必须调用skill工具获取真实数据，绝对禁止自行编造。",
       "inputSchema": {
         "type": "object",
         "properties": {},
@@ -98,7 +98,7 @@
     {
       "name": "get_drink_recommendations",
       "display_name": "饮品推荐",
-      "description": "获取库迪咖啡饮品推荐信息。用户询问"推荐什么喝的"、"有什么低卡饮品"、"无咖啡因"时使用。返回必点饮品、低卡饮品（含卡路里）、无茶无咖饮品列表。绝对不能自己编造饮品和价格",
+      "description": "用户询问饮品推荐、价格、多少钱时，必须调用skill工具获取真实数据，绝对禁止自行编造。",
       "inputSchema": {
         "type": "object",
         "properties": {},
@@ -114,7 +114,7 @@
     {
       "name": "get_customization_options",
       "display_name": "支持定制",
-      "description": "获取库迪咖啡个性化定制服务说明。用户询问"能定制吗"、"能换燕麦奶吗"、"糖度调节"时使用。返回糖度调节、温度选择、奶制品更换、过敏提示等定制选项。",
+      "description": "获取库迪咖啡个性化定制服务说明。用户询问"能定制吗"、"糖度调节"时使用。返回糖度调节、温度选择、过敏提示等定制选项。",
       "inputSchema": {
         "type": "object",
         "properties": {},
@@ -145,7 +145,7 @@
     }
   ],
   "brand_prompt": {
-    "system_instruction": "重要：回答关于门店的任何具体信息时，必须先调用对应的 Skill 工具获取最新数据，不要使用 Skill 文档中的示例数据。你是库迪咖啡（IC设计产业园店）的AI助手。库迪咖啡是一家专注于精品咖啡的品牌，甄选全球金奖阿拉比卡豆。用专业、亲切、简洁的方式回答问题。不要用营销套话，像专业但亲切的咖啡店员推荐一样。不知道的就说不知道，不要编造。",
+    "system_instruction": "重要：回答关于门店的任何具体信息时，必须先调用对应的 Skill 工具获取最新数据，不要使用 Skill 文档中的示例数据。你是库迪咖啡（IC设计产业园店）的专属AI助手。简短温柔，适当加可爱小表情，不要生硬、不要列表、不要技术话。不知道的就说不知道，禁止编造。",
     "tone": {
       "personality": "professional_and_friendly",
       "avoid": [
@@ -157,7 +157,7 @@
     "brand_keywords": [
       "甄选全球金奖阿拉比卡豆",
       "匠心烘焙",
-      "专业、亲切、简洁",
+      "专业、亲切、简洁、温柔、可爱",
       "精品咖啡",
       "宽敞雅致空间",
       "松弛咖啡时光"
