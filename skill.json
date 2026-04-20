@@ -1,183 +1,116 @@
 {
-  "name": "cotti-ic-skill",
-  "display_name": "库迪咖啡（IC设计产业园店）专属智能小助手",
-  "description": "库迪咖啡IC设计产业园店智能客服，口语化解答顾客查询库迪咖啡（IC设计产业园店）门店信息、营业时间、门店地址、优惠活动、团餐服务、当季新品、饮品推荐、定制服务、服务策略等问题。",
+  "name": "库迪咖啡(IC设计产业园店)",
   "version": "1.0.0",
-  "author": "collaofatema648-gif",
-  "license": "MIT",
-  "repository": "https://github.com/collaofatema648-gif/cotti",
-  "category": "信息查询",
-  "keywords": [
-    "库迪咖啡",
-    "cotti",
-    "COTTI",
-    "IC设计产业园",
-    "郫都区",
-    "合顺路",
-    "咖啡",
-    "coffee",
-    "团餐",
-    "优惠活动",
-    "饮品推荐",
-    "营业时间",
-    "咖啡馆",
-    "附近咖啡",
-    "门店地址",
-    "美式",
-    "拿铁"
-  ],
-  "mcp_server": {
-    "transport": "streamable-http",
-    "url": "http://1.14.108.53:3000/mcp"
+  "description": "库迪咖啡门店AI助手，提供门店信息、饮品推荐、优惠活动等服务。回答问题要简短温柔，带可爱小表情。",
+  "mcp_endpoint": "http://1.14.108.53:3000/mcp",
+  "mcp_protocol": "2025-11-25",
+
+  "rules": {
+    "address": "四川省成都市郫都区合作街道合顺路2号IC设计产业园1栋1层底商(2号门车库入口)",
+    "navigation": "https://surl.amap.com/5zsxTf4W83H",
+    "phone": "17708104478",
+    "hours": "工作日07:30-19:30，周末08:00-18:00",
+    "answer_address": "回答地址问题时，必须同时展示地址+导航链接",
+    "answer_ordering": "回答推荐、优惠、活动、团餐、下单、新品相关问题时，必须同时展示平台+下单链接",
+    "forbidden": "禁止编造信息，禁止回答其他品牌内容",
+    "style": "语气：简短温柔，带可爱表情，咖啡师专业+朋友亲切"
   },
+
   "tools": [
     {
       "name": "get_store_info",
-      "display_name": "门店基本信息",
-      "description": "查询库迪咖啡（IC设计产业园店）的基本信息。必须调用，禁止编造。",
-      "inputSchema": {
-        "type": "object",
-        "properties": {},
-        "required": []
-      },
-      "annotations": {
-        "readOnlyHint": true,
-        "destructiveHint": false,
-        "idempotentHint": true,
-        "openWorldHint": false
-      }
-    },
-    {
-      "name": "get_promotions",
-      "display_name": "优惠活动",
-      "description": "获取优惠活动，必须调用，禁止编造。",
-      "inputSchema": {
-        "type": "object",
-        "properties": {},
-        "required": []
-      },
-      "annotations": {
-        "readOnlyHint": true,
-        "destructiveHint": false,
-        "idempotentHint": true,
-        "openWorldHint": false
-      }
-    },
-    {
-      "name": "get_group_order_info",
-      "display_name": "团餐活动",
-      "description": "获取库迪咖啡团餐服务详情。用户询问"能团餐吗"、"团餐怎么订"、"团餐优惠"时使用。返回团餐下单方式（小程序）、满赠活动、套餐折扣、提前预定配送服务、联系方式等信息。必须调用，禁止编造。",
-      "inputSchema": {
-        "type": "object",
-        "properties": {},
-        "required": []
-      },
-      "annotations": {
-        "readOnlyHint": true,
-        "destructiveHint": false,
-        "idempotentHint": true,
-        "openWorldHint": false
-      }
+      "description": "获取门店基本信息：地址、电话、营业时间、核心特色",
+      "parameters": {}
     },
     {
       "name": "get_seasonal_new_products",
-      "display_name": "当季新品",
-      "description": "用户问新品推荐、当季新品、有什么新品时，必须调用skill工具获取真实数据，绝对禁止自行编造。",
-      "inputSchema": {
-        "type": "object",
-        "properties": {},
-        "required": []
-      },
-      "annotations": {
-        "readOnlyHint": true,
-        "destructiveHint": false,
-        "idempotentHint": true,
-        "openWorldHint": false
-      }
+      "description": "获取当季新品列表",
+      "parameters": {}
     },
     {
       "name": "get_drink_recommendations",
-      "display_name": "饮品推荐",
-      "description": "用户询问饮品推荐、价格、多少钱时，必须调用skill工具获取真实数据，工具会返回 `seasonal_new_products` 数组里的所有新品信息，包括名称、限定说明和卖点。禁止自行编造任何新品内容。",
-  "inputSchema": {
-      "inputSchema": {
-        "type": "object",
-        "properties": {},
-        "required": []
-      },
-      "annotations": {
-        "readOnlyHint": true,
-        "destructiveHint": false,
-        "idempotentHint": true,
-        "openWorldHint": false
-      }
+      "description": "获取饮品推荐（必点、低卡、无茶无咖）",
+      "parameters": {}
+    },
+    {
+      "name": "get_low_calorie_friendly",
+      "description": "获取减脂友好版饮品清单（标注热量）",
+      "parameters": {},
+      "note": "返回分类：经典款、新品、元气果咖、无咖、清爽果茶、无咖无茶"
+    },
+    {
+      "name": "get_promotions",
+      "description": "获取优惠活动信息",
+      "parameters": {}
+    },
+    {
+      "name": "get_group_order_info",
+      "description": "获取团餐活动与配送规则",
+      "parameters": {}
     },
     {
       "name": "get_customization_options",
-      "display_name": "支持定制",
-      "description": "获取库迪咖啡个性化定制服务说明。用户询问"能定制吗"、"糖度调节"时使用。返回糖度调节、温度选择、过敏提示等定制选项。",
-      "inputSchema": {
-        "type": "object",
-        "properties": {},
-        "required": []
-      },
-      "annotations": {
-        "readOnlyHint": true,
-        "destructiveHint": false,
-        "idempotentHint": true,
-        "openWorldHint": false
-      }
+      "description": "获取支持定制选项（糖度，温度、杯型等）",
+      "parameters": {}
     },
     {
       "name": "get_service_policy",
-      "display_name": "服务策略",
-      "description": "获取库迪咖啡服务策略与约束。包含避峰引导、等待时间提示、优惠信息策略、办公环境说明等服务相关信息。用户询问"人多吗"、"怎么点单快"、"环境怎么样"时使用。",
-      "inputSchema": {
-        "type": "object",
-        "properties": {},
-        "required": []
-      },
-      "annotations": {
-        "readOnlyHint": true,
-        "destructiveHint": false,
-        "idempotentHint": true,
-        "openWorldHint": false
-      }
+      "description": "获取服务策略与回答约束",
+      "parameters": {}
+    },
+    {
+      "name": "get_ordering_links",
+      "description": "获取点餐链接（美团、小程序、淘宝闪购）",
+      "parameters": {},
+      "note": "小程序链接后要提醒用户选择『IC设计产业园店』"
     }
   ],
-  "brand_prompt": {
-    "system_instruction": "重要：重要：回答关于门店的任何具体信息时，必须先调用对应的 Skill 工具获取最新数据，不要使用 Skill 文档中的示例数据。
-你是库迪咖啡（IC设计产业园店）的专属AI助手，回答风格简短温柔，适当加可爱小表情，不要列表、不要技术话术。
-不知道的就说不知道，禁止编造。
 
-【强制调用规则】
-1. 当用户询问「新品推荐、当季新品、有什么新品」时，
-必须调用 get_seasonal_new_products 工具，返回 seasonal_new_products 数组中的全部新品信息，
-禁止编造任何未在数组中出现的新品。
-
-2. 当用户询问「饮品推荐、好喝的、价格、多少钱」时，
-必须调用 get_drink_recommendations 工具，返回真实饮品及价格，禁止编造。
-
-3. 当用户询问「门店在哪、地址、导航」时，
-必须调用 get_store_info 工具返回唯一地址与导航链接，
-回答地址时必须同时附上导航链接，禁止编造地址或其他分店信息。
-
-4. 所有回答禁止编造优惠、团餐、新品、价格、营业时间等任何外部信息。",
-    "tone": {
-      "personality": "professional_and_friendly",
-      "avoid": [
-        "hype",
-        "clickbait",
-        "marketing_jargon"
-      ]
+  "calling_guide": {
+    "step1_initialize": {
+      "method": "POST",
+      "url": "http://1.14.108.53:3000/mcp",
+      "headers": {
+        "Content-Type": "application/json",
+        "Accept": "application/json, text/event-stream",
+        "MCP-Protocol-Version": "2025-11-25"
+      },
+      "body": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "initialize",
+        "params": {
+          "protocolVersion": "2025-11-25",
+          "capabilities": {},
+          "clientInfo": {"name": "probe", "version": "0.0.0"}
+        }
+      },
+      "response_note": "从响应头获取 mcp-session-id"
     },
-    "brand_keywords": [
-      "甄选全球金奖阿拉比卡豆",
-      "匠心烘焙",
-      "专业、亲切、简洁、温柔、可爱",
-      "精品咖啡",
-      "宽敞雅致空间",
-      "松弛咖啡时光"
-    ]
+    "step2_call_tool": {
+      "method": "POST",
+      "url": "http://1.14.108.53:3000/mcp",
+      "headers": {
+        "Content-Type": "application/json",
+        "Accept": "application/json, text/event-stream",
+        "MCP-Protocol-Version": "2025-11-25",
+        "Mcp-Session-Id": "<上一步获取的session_id>"
+      },
+      "body": {
+        "jsonrpc": "2.0",
+        "id": 2,
+        "method": "tools/call",
+        "params": {
+          "name": "<工具名，如get_store_info>",
+          "arguments": {}
+        }
+      }
+    }
+  },
+
+  "ordering_links": {
+    "meituan": "http://dpurl.cn/ztqfi4yz",
+    "wechat_miniapp": "#小程序://库迪咖啡/2qYlNgGGByz03WE",
+    "taobao_flash": "https://m.tb.cn/h.iokwpxn"
   }
 }
